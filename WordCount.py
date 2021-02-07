@@ -12,19 +12,24 @@ This code will
 3. display them in descending order of word count
 """
 
+import re
+
 def countWords(text):
     #text = input("Enter text here: ")
     #text = "hello world world hello world babe"
     
-    words = text.casefold().split(' ')
+    words = re.split(' |,|\(|\)|\.|\n', text.casefold())
+    #print(words)
+    #words = text.casefold().split(' ')
     wordcount = {}
     
     for word in words:
-        if word in wordcount:
-            wordcount[word] += 1
-        else:
-            wordcount[word] = 1
+        if word != '':
+            if word in wordcount:
+                wordcount[word] += 1
+            else:
+                wordcount[word] = 1
     
-    results = sorted(wordcount.items(), key = lambda kv:(kv[1], kv[0]), reverse = True)
-    for result in results:
-        print(result[0])
+    #results = sorted(wordcount.items(), key = lambda kv:(kv[1], kv[0]), reverse = True)
+    #return results
+    return wordcount
