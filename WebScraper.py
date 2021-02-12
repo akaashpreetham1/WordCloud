@@ -29,6 +29,8 @@ import DocumentRead as dr
 
 def scrapeBlog(url):
     page = urlopen(url)
+    #print("Into the func")
+    
     html = page.read().decode("utf-8")
     soup = BeautifulSoup(html, "html.parser")
     links = soup.find_all('a', class_ = 'post-thumbnail')
@@ -37,6 +39,7 @@ def scrapeBlog(url):
         posts.append(post.get('href'))
     #for post in posts:
     #    print(post.get('href'))
+    print("outta the func")
     return posts
     
 def scrapePost(url):
@@ -48,12 +51,12 @@ def scrapePost(url):
     html = page.read().decode("utf-8")
     soup = BeautifulSoup(html, "html.parser")
     #print(soup.title.text)
-    fileName = dr.getProperFileName(soup.title.text) + ".txt"
+    filename = dr.getProperFileName(soup.title.text) + ".txt"
     #dr.createDoc(fileName)
     for tag in soup.find_all('div', class_ = 'entry-content'):
         #print(tag.text)
-        dr.writeDoc(fileName, tag.text)
-    return fileName
+        dr.writeDoc(filename, tag.text)
+    return filename
   
     #print(soup.body.text)
     #for p in soup.find_all("p")

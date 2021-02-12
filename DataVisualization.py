@@ -6,11 +6,11 @@ Created on Sun Feb  7 14:23:30 2021
 """
 
 #import numpy as np
-import pandas as pd
+#import pandas as pd
 import matplotlib.pyplot as plt
 #import WordCount
 from wordcloud import WordCloud, STOPWORDS
-import os
+#import os
 
 #temp = pd.DataFrame.from_dict(sortedWords, columns = ['Word', 'No. of occurrences'])
 
@@ -21,7 +21,7 @@ def visualizeData(text, filename):
     #countDF = countDF.sort_values(by = ['Count'], ascending = False)
     #print(countDF.index)
 
-    stopwords = set(STOPWORDS)
+    stopwords = list(STOPWORDS) #+ ["know", "Venom", "Akaash", "Preetham", "Yeah", "Okay", "Will", "Know", "Media omitted"]
 
     #for val in countDF.Count:
     #    val = str(val)

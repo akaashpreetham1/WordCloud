@@ -15,14 +15,22 @@ import DocumentRead as dr
 import WordCount as wc
 import WebScraper as ws
 import DataVisualization as dv
+import UserInterface as UI
 
 def main():
     
-    url = input("Enter the url of blog: ")
+    #url = input("Enter the url of blog: ")
     
+    
+    app = UI.App()
+    url = str(app.returnURL())
+    
+    print("URL = " + str(url) + "\n------")
     posts = ws.scrapeBlog(url)
+    print("Scrapingok \n------")
     
     for post in posts:
+        print("into the loop")
         filename = ws.scrapePost(post)
         
         
